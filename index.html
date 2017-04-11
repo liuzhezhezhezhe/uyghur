@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>维语搜索引擎ئۇيغۇچە ئىزدەش</title>
+	<link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+	<style>
+		.container {
+			margin-top: 20px;
+		}
+
+		.panel-body div a,article {
+			display: block;
+			width: inherit;
+			max-width: inherit;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	</style>
+</head>
+<body>
+	<div id="uyghur">
+		<header>
+			<h1 class="text-center">维语搜索引擎</h1>
+			<h1 class="text-center">ئۇيغۇچە ئىزدەش</h1>
+			<div class="center input-group input-group-lg col-md-6 col-md-offset-3">
+				<input v-model="searchContent" class="form-control" type="text" placeholder="请输入搜索内容(ئىزدىمەكچى بولغان مەزمۇننى كىرگۈزۈڭ)" />
+				<span class="input-group-addon">搜索(ئىزدەش)</span>
+			</div>
+		</header>
+		<div class="container center-block">
+			<div class="row">
+				<section class="panel panel-default col-md-6">
+					<div class="panel-heading">
+						<h3 class="panel-title">中文结果</h3>
+					</div>
+					<div class="panel-body">
+						<div v-for="item in chineseResult">
+							<a href="#"><h4 v-html="item.title"></h4></a>
+							<article v-html="item.content"></article>
+						</div>
+					</div>
+				</section>
+				<section class="panel panel-default col-md-6">
+					<div class="panel-heading">
+						<h3 class="panel-title">ئۇيغۇرچە تەرجىمىسى</h3>
+					</div>
+					<div class="panel-body">
+						<div v-for="item in uyghurResult">
+							<a href="#"><h4 v-html="item.title"></h4></a>
+							<article v-html="item.content"></article>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	<script src="./lib/jquery-3.2.0.min.js"></script>
+	<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="./lib/vue.min.js"></script>
+	<script src="./js/main.js"></script>
+</body>
+</html>
